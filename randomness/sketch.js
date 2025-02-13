@@ -12,7 +12,7 @@ function setup() {
 function draw() {
   //with each cycle through draw(), the walker takes a step and draws a dot
   //loops forever until quit, call functions
-  walker.step();
+  walker.step4();
   walker.show();
 }
 
@@ -30,7 +30,8 @@ class Walker {
       //use this keyword when referencing properties/variable of object
   }
 
-  step() {
+  step4() {
+      //allows 4 possible moves(up,down.left,right)
       let choice = floor(random(4));
 
       if (choice === 0) {
@@ -42,5 +43,14 @@ class Walker {
       }  else if (choice === 3) {
         this.y--;  //move forward (up a pixel)
       }
+  }
+
+  step9() {
+    //allows 9 possible moves (stay put, up,down,left,right,diagonals)
+    let xstep = floor(random(3)) - 1; // option -1,0,1
+    let ystep = floor(random(3)) - 1;
+
+    this.x += xstep;
+    this.y += ystep;
   }
 }
